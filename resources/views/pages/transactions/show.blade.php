@@ -26,7 +26,7 @@
     <tr>
         <th>Pembelian Produk</th>
         <td>
-            <table class="table-borderdere w-100">
+            <table class="table-bordered w-100">
                 <tr>
                     <th>Nama</th>
                     <th>Tipe</th>
@@ -43,20 +43,20 @@
         </td>
     </tr>
 </table>
-{{-- <div class="row">
+<div class="row">
     <div class="col-4">
-        <a href="{{route('transaction.status', $item->id)}} ?status=SUCCESS class="btn-success btn-block">
-            <i class="fa fa-check"></i>
-        </a>
+      <a href="{{ route('transactions.status', $item->id) }}?status=SUCCESS" class="btn btn-success btn-block">
+        <i class="fa fa-check"></i> Set Sukses
+      </a>
     </div>
     <div class="col-4">
-        <a href="{{route('transaction.status', $item->id)}} ?status=FAILED class="btn-success btn-warning">
-            <i class="fa fa-tines"></i>
-        </a>
+      <a href="{{ route('transactions.status', $item->id) }}?status=FAILED" class="btn btn-warning btn-block">
+        <i class="fa fa-times"></i> Set Gagal
+      </a>
     </div>
     <div class="col-4">
-        <a href="{{route('transaction.status', $item->id)}} ?status=PENDING class="btn-success btn-info">
-            <i class="fa fa-spinner"></i>
-        </a>
+      <a href="{{ route('transactions.status', $item->id) }}?status=PENDING" class="btn btn-info btn-block">
+        <i class="fa fa-spinner"></i> Set Pending
+      </a>
     </div>
-</div> --}}
+  </div>
