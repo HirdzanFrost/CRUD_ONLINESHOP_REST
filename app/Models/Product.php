@@ -17,7 +17,7 @@ class Product extends Model
 
     ];
 
-    protected function galleries(){
+    public function galleries(){
 
        return $this-> hasMany(ProductGallery::class, 'products_id');
     }
