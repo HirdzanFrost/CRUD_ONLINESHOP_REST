@@ -29,5 +29,40 @@ class ProductController extends Controller
                 return ResponseFormater::error(null, 'Data Produk Tidak Ada', 404);
         }
 
+        if($slug)
+        {
+            $product = Product::with('galleries')
+                ->where('slug', $slug)
+                ->first();
+
+            if($product)
+                return ResponseFormater::success($product, 'Data Product Berhasil Diambil');
+            else
+                return ResponseFormater::error(null, 'Data Produk Tidak Ada', 404);
+        }
+
+        $product = Product::with('galleries');
+
+        if($name){
+            $product->where('name', 'like', '%' . $name . '%');
+        }
+
+        if($type){
+            $product->where('type', 'like', '%' . $type . '%');
+        }
+
+        if($price_from){
+            $product->where('price', '>=', $price_from);
+        }
+
+        if($price_to){
+            $product->where('price', '<=', $price_to);
+        }
+
+        return ResponseFormater::success(
+            $product->paginate($limit),
+            'Data List Produk Berhasil Di Ambil'
+        );
+
     }
 }
